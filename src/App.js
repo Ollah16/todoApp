@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HandleNewTodo from './myTodos';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   let [allTodos, setTodo] = useState('')
@@ -13,7 +13,6 @@ function App() {
 
   const handleChanges = (type, todoId, newTodo) => {
     let myTodos = [...allTodos]
-
     switch (type) {
       case 'edit':
         myTodos[todoId].editTodo = true
@@ -41,7 +40,6 @@ function App() {
         myTodos[todoId].editTodo = false
         break;
     }
-
     setTodo(myTodos)
   }
 
